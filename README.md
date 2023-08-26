@@ -255,35 +255,3 @@ or, during execution:
 ```shell
 TZ=Asia/Jakarta ./yourbin
 ```
-
-**What about more than one timezone in a single application?**
-
-You can always use `time` package function called `time.LoadLocation` to create spesific timezone/location time object.
-
-For example:
-
-```go
-loc, err := time.LoadLocation("Asia/Jakarta")
-if err != nil {
-    // handle the error
-}
-
-// this function produce time.Now specified to loc or Asia/Jakarta
-nowInLoc := time.Now().In(loc)
-```
-
-## References
-
-### Go Errors
-
-**Articles**
-
-- https://dave.cheney.net/2016/04/27/dont-just-check-errors-handle-them-gracefully
-- https://blog.golang.org/go1.13-errors
-
-**Videos**
-
-- [GopherCon 2019: Marwan Sulaiman - Handling Go Errors](https://www.youtube.com/watch?v=4WIhhzTTd0Y)
-
-**Code**
-- Upspin errors [package](https://github.com/upspin/upspin/blob/master/errors/errors.go)
